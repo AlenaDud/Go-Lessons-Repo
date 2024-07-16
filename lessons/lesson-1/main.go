@@ -141,7 +141,11 @@ func typeNumCoercion() {
 func typeStrCoercion() {
 	var stringValue string
 	stringValue = "123"
-	stringNumber, _ := strconv.Atoi(stringValue)
-	stringNumber *= stringNumber
-	fmt.Println(stringNumber)
+	stringNumber, err := strconv.Atoi(stringValue)
+	if err != nil {
+		fmt.Println("error:", err)
+	} else {
+		stringNumber *= stringNumber
+		fmt.Println(stringNumber)
+	}
 }
